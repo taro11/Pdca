@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102043440) do
+ActiveRecord::Schema.define(version: 20161102044323) do
 
   create_table "issues", force: :cascade do |t|
     t.text     "text",       limit: 65535
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20161102043440) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "part_id",    limit: 4
+  end
+
+  create_table "kpis", force: :cascade do |t|
+    t.text     "text",           limit: 65535
+    t.integer  "current_number", limit: 4
+    t.integer  "goal_number",    limit: 4
+    t.integer  "importance",     limit: 4
+    t.integer  "issue_id",       limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "parts", force: :cascade do |t|
