@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102042347) do
+ActiveRecord::Schema.define(version: 20161102043440) do
+
+  create_table "issues", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "impact",     limit: 4
+    t.string   "time",       limit: 255
+    t.integer  "difficulty", limit: 4
+    t.integer  "priority",   limit: 4
+    t.integer  "importance", limit: 4
+    t.integer  "kgi_id",     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "kgis", force: :cascade do |t|
     t.text     "text",       limit: 65535
