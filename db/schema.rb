@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102044722) do
+ActiveRecord::Schema.define(version: 20161102045738) do
 
   create_table "dos", force: :cascade do |t|
     t.text     "text",        limit: 65535
@@ -38,12 +38,47 @@ ActiveRecord::Schema.define(version: 20161102044722) do
     t.datetime "updated_at"
   end
 
+  create_table "kdi_achievements", force: :cascade do |t|
+    t.integer  "current_performance_number", limit: 4
+    t.text     "text",                       limit: 65535
+    t.string   "time",                       limit: 255
+    t.integer  "kdi_id",                     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kdis", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "number",     limit: 4
+    t.integer  "do_id",      limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kgi_achievements", force: :cascade do |t|
+    t.integer  "current_performance_number", limit: 4
+    t.text     "text",                       limit: 65535
+    t.string   "time",                       limit: 255
+    t.integer  "kgi_id",                     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "kgis", force: :cascade do |t|
     t.text     "text",       limit: 65535
     t.integer  "number",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "part_id",    limit: 4
+  end
+
+  create_table "kpi_achievements", force: :cascade do |t|
+    t.integer  "current_performance_number", limit: 4
+    t.text     "text",                       limit: 65535
+    t.string   "time",                       limit: 255
+    t.integer  "kpi_id",                     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "kpis", force: :cascade do |t|
@@ -77,6 +112,15 @@ ActiveRecord::Schema.define(version: 20161102044722) do
     t.integer  "difficulty", limit: 4
     t.integer  "priority",   limit: 4
     t.integer  "kpi_id",     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "to_dos", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.date     "deadline"
+    t.integer  "routine",    limit: 4
+    t.integer  "do_id",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
