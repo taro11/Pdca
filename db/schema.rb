@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102050811) do
+ActiveRecord::Schema.define(version: 20161102085322) do
 
   create_table "adjust_solutions", force: :cascade do |t|
     t.text     "text",                   limit: 65535
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20161102050811) do
     t.integer  "kpi_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "importance", limit: 4
   end
 
   create_table "to_dos", force: :cascade do |t|
