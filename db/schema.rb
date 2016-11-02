@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102045738) do
+ActiveRecord::Schema.define(version: 20161102050811) do
+
+  create_table "adjust_solutions", force: :cascade do |t|
+    t.text     "text",                   limit: 65535
+    t.integer  "impact",                 limit: 4
+    t.string   "time",                   limit: 255
+    t.integer  "difficulty",             limit: 4
+    t.integer  "priority",               limit: 4
+    t.integer  "kgi_adjust_solution_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "dos", force: :cascade do |t|
     t.text     "text",        limit: 65535
@@ -22,6 +33,13 @@ ActiveRecord::Schema.define(version: 20161102045738) do
     t.integer  "priority",    limit: 4
     t.integer  "importance",  limit: 4
     t.integer  "solution_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "findings", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "part_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +65,24 @@ ActiveRecord::Schema.define(version: 20161102045738) do
     t.datetime "updated_at"
   end
 
+  create_table "kdi_adjust_solutions", force: :cascade do |t|
+    t.text     "text",                   limit: 65535
+    t.integer  "impact",                 limit: 4
+    t.string   "time",                   limit: 255
+    t.integer  "difficulty",             limit: 4
+    t.integer  "priority",               limit: 4
+    t.integer  "kdi_adjust_solution_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kdi_reasons", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "kdi_id",     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "kdis", force: :cascade do |t|
     t.text     "text",       limit: 65535
     t.integer  "number",     limit: 4
@@ -64,6 +100,13 @@ ActiveRecord::Schema.define(version: 20161102045738) do
     t.datetime "updated_at"
   end
 
+  create_table "kgi_reasons", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "kgi_id",     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "kgis", force: :cascade do |t|
     t.text     "text",       limit: 65535
     t.integer  "number",     limit: 4
@@ -77,6 +120,24 @@ ActiveRecord::Schema.define(version: 20161102045738) do
     t.text     "text",                       limit: 65535
     t.string   "time",                       limit: 255
     t.integer  "kpi_id",                     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kpi_adjust_solutions", force: :cascade do |t|
+    t.text     "text",                   limit: 65535
+    t.integer  "impact",                 limit: 4
+    t.string   "time",                   limit: 255
+    t.integer  "difficulty",             limit: 4
+    t.integer  "priority",               limit: 4
+    t.integer  "kpi_adjust_solution_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kpi_reasons", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "kpi_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
